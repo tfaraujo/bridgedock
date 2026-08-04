@@ -1,0 +1,10 @@
+mbl_out*/
+*.pdb
+*.pdbqt
+*.dlg
+*.glg
+*.map
+*.fld
+*.xyz
+__pycache__/
+*.pyc
