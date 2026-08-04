@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "bridgedock: a coordination-aware bimetallic bridging filter for docking to di-nuclear metalloenzymes"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - given-names: "[given name]"
+    family-names: "[family name]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+license: MIT
+version: 1.0.0
+date-released: "2026-08-04"
