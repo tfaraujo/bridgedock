@@ -52,29 +52,15 @@ Redocking of the 5 co-crystallised ligands reproduced the deposited pose within 
 | `ligands.csv` | the 9 study compounds (6 organosulfur + 3 hydrocarbon negative controls), as SMILES |
 | `ligands_positive_controls.csv` | the 4 thiol positive controls (captopril, thiorphan, tiopronin, dimercaprol), as SMILES |
 
-Receptor coordinates are **not** included — download them from the PDB using the codes in `mbl_targets.csv`: 8B1W (NDM-1), 6MGY (NDM-5), 7AEZ (NDM-7), 5N5G (VIM-1), 7A5Z (VIM-2), 2Y87 (VIM-7), 7YH9 (IMP-1), 5NDB (SPM-1).
+Receptor coordinates are **not** included — download them from the PDB using the codes in `mbl_targets.csv`: 8B1W (NDM-1), 6MGY (NDM-5), 7AEZ (NDM-7), 5N5G (VIM-1), 7A5Z (VIM-2), 2Y87 (VIM-7), 7YH9 (IMP-1), 5NDB (SPM-1). The three input CSVs above are the ones actually used in the published run, so the commands below reproduce it exactly.
 
-### Results
+### Data and results
 
-| File | Description |
-|---|---|
-| `results_main_panel.csv` | primary output, 72 compound–target pairs. Columns ending `_FIXED` are the heteroatom-restricted filter; `_ORIGINAL` are the proximity-only filter, retained so the difference between the two criteria can be recomputed |
-| `results_thiol_controls.csv` | the 4 thiol inhibitors × 8 enzymes, same format as the pipeline's standard output |
-| `redock_validation.csv` | redocking of the 5 co-crystallised ligands: RMSD of the top-ranked and closest poses, RMSD method, and whether the crystallographic pose itself satisfies the bridging criterion |
+All docking outputs, manuscript tables and figures are archived on Zenodo, not in this repository:
 
-### Manuscript tables and figures
+**[https://doi.org/10.5281/zenodo.21783167](https://doi.org/10.5281/zenodo.21783167)**
 
-| File | Description |
-|---|---|
-| `Table1_docking_MBL.csv` | Table 1 as published: ΔG_bridge and bridging pose counts per compound and target |
-| `Table_S1_full_docking_results.csv` | Additional file, Table S1: all 72 pairs in long format, with both criteria side by side |
-| `Table_S4_redocking_validation.csv` | Additional file, Table S4: redocking validation, formatted |
-| `Table_S5_thiol_positive_controls.csv` | Additional file, Table S5: thiol positive controls, formatted |
-| `Figure1_heatmap.png` / `.svg` | Figure 1: bridging coordination across all compounds and targets |
-| `Figure2_allicin_IMP1_2D.png` / `_3D.png` | Figure 2: allicin in IMP-1, best bridging pose |
-| `Figure2_thiophene_NDM7_2D.png` / `_3D.png` | Figure 2: thiophene-2-carboxylic acid in NDM-7, best bridging pose |
-
-Two-dimensional interaction diagrams were generated in BIOVIA Discovery Studio Visualizer. Note that its default metal-interaction cutoff is shorter than the 3.0 Å used here, so a coordination contact reported in the tables may not be drawn in the diagram; heteroatom–Zn distances in the tables are authoritative.
+The Zenodo record contains the complete results for the 72 compound–target pairs of the main panel (under both the heteroatom-restricted and the proximity-only criteria), the thiol positive controls, the redocking validation, the four manuscript tables and the figures in PNG and SVG. This repository holds the code needed to regenerate all of it.
 
 ---
 
@@ -159,7 +145,9 @@ python mbl_dock.py --targets mbl_targets.csv \
   --engine vina --exhaustiveness 32 --control Captopril
 ```
 
-Docking is stochastic and each pair was run once, so pose counts will differ slightly between runs. The qualitative result — zero bridging for hydrocarbons, bridging for organosulfur compounds and thiols — is not sensitive to the seed.
+Docking is stochastic and each pair was run once, so pose counts will differ slightly between runs. The qualitative result — zero bridging for hydrocarbons, bridging for organosulfur compounds and thiols — is not sensitive to the seed. To compare a new run against the published one, download the archived results from the Zenodo record above.
+
+The two-dimensional interaction diagrams in the Zenodo record were generated in BIOVIA Discovery Studio Visualizer. Its default metal-interaction cutoff is shorter than the 3.0 Å used here, so a coordination contact reported in the tables may not be drawn in the diagram; the heteroatom–Zn distances in the tables are authoritative.
 
 ---
 
@@ -189,7 +177,7 @@ If you use this code, please cite the manuscript and the archived release:
 
 ```
 [manuscript citation once published]
-[Zenodo DOI]
+Archived code and data: https://doi.org/10.5281/zenodo.21783167
 ```
 
 Please also cite the underlying tools: AutoDock4Zn (Santos-Martins et al., *J Chem Inf Model* 2014, 54:2371), AutoDock Vina 1.2 (Eberhardt et al., *J Chem Inf Model* 2021, 61:3891), AutoDockTools (Morris et al., *J Comput Chem* 2009, 30:2785) and Open Babel (O'Boyle et al., *J Cheminform* 2011, 3:33).
