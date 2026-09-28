@@ -3,9 +3,10 @@ title: "bridgedock: a coordination-aware bimetallic bridging filter for docking 
 message: "If you use this software, please cite it as below."
 type: software
 authors:
-  - given-names: "[given name]"
-    family-names: "[family name]"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - given-names: "Thiago"
+    family-names: "Ferreira de Araújo"
+    orcid: "https://orcid.org/0000-0001-8423-256X"
+    affiliation: "Universidade Estadual Vale do Acaraú"
 license: MIT
 version: 1.0.0
 date-released: "2026-08-04"
